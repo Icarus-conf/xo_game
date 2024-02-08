@@ -53,6 +53,9 @@ class _HomePageState extends State<HomePage> {
     }
 
     _counter++;
+    if (_counter == 10) {
+      resetBoard();
+    }
 
     setState(() {});
   }
