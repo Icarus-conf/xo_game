@@ -87,7 +87,7 @@ class LoginPage extends StatelessWidget {
                               );
                             }
                           },
-                          child: PoppinsText(
+                          child: const PoppinsText(
                             text: 'Start the game',
                             color: Colors.black,
                             fontWeight: FontWeight.w600,

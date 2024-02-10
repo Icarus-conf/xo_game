@@ -41,15 +41,15 @@ class TextFieldStyling extends StatelessWidget {
             width: 1.5,
           ),
         ),
-        errorStyle: TextStyle(
+        errorStyle: const TextStyle(
           color: Color(0xFFa8dadc),
         ),
-        errorBorder: UnderlineInputBorder(
+        errorBorder: const UnderlineInputBorder(
           borderSide: BorderSide(
             color: Color(0xFFa8dadc),
           ),
         ),
-        focusedErrorBorder: UnderlineInputBorder(
+        focusedErrorBorder: const UnderlineInputBorder(
           borderSide: BorderSide(
             color: Color(0xFFa8dadc),
           ),

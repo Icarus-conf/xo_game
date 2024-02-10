@@ -5,7 +5,7 @@ import 'package:xo_game/model/player_model.dart';
 
 class HomePage extends StatefulWidget {
   static const String routeName = 'HomePage';
-  HomePage({super.key});
+  const HomePage({super.key});
 
   @override
   State<HomePage> createState() => _HomePageState();
@@ -109,11 +109,11 @@ class _HomePageState extends State<HomePage> {
     var playerModel = ModalRoute.of(context)!.settings.arguments as PlayerModel;
     return Scaffold(
       appBar: AppBar(
-        title: PoppinsText(
+        title: const PoppinsText(
           text: 'XO-Game',
           fontWeight: FontWeight.bold,
         ),
-        backgroundColor: Color(0xFFa8dadc),
+        backgroundColor: const Color(0xFFa8dadc),
       ),
       body: Column(
         children: [
@@ -128,7 +128,7 @@ class _HomePageState extends State<HomePage> {
                         text: playerModel.playerOneName,
                         fontWeight: FontWeight.w600,
                         fontS: 25,
-                        color: Color(0xFF0077b6),
+                        color: const Color(0xFF0077b6),
                       ),
                       PoppinsText(
                         text: '$_scoreOne',
@@ -146,7 +146,7 @@ class _HomePageState extends State<HomePage> {
                         text: playerModel.playerTwoName,
                         fontWeight: FontWeight.w600,
                         fontS: 25,
-                        color: Color(0xFF0077b6),
+                        color: const Color(0xFF0077b6),
                       ),
                       PoppinsText(
                         text: '$_scoreTwo',
