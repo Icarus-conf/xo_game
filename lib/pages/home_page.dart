@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:rflutter_alert/rflutter_alert.dart';
 import 'package:xo_game/components/button.dart';
 import 'package:xo_game/components/text_format.dart';
 import 'package:xo_game/model/player_model.dart';
@@ -39,22 +40,79 @@ class _HomePageState extends State<HomePage> {
       _scoreOne += 2;
       bool win = winnerChecker('X');
       if (win) {
-        _scoreOne += 10;
-        resetBoard();
+        Alert(
+          context: context,
+          type: AlertType.success,
+          title: "Congrats X wins!",
+          buttons: [
+            DialogButton(
+              onPressed: () {
+                setState(() {
+                  _scoreOne += 10;
+                  resetBoard();
+                  Navigator.pop(context);
+                });
+              },
+              width: 120,
+              child: const Text(
+                "Proceed",
+                style: TextStyle(color: Colors.white, fontSize: 20),
+              ),
+            )
+          ],
+        ).show();
       }
     } else {
       _boardState[index] = 'O';
       _scoreTwo += 2;
       bool win = winnerChecker('O');
       if (win) {
-        _scoreTwo += 10;
-        resetBoard();
+        Alert(
+          context: context,
+          type: AlertType.success,
+          title: "Congrats O wins!",
+          buttons: [
+            DialogButton(
+              onPressed: () {
+                setState(() {
+                  _scoreTwo += 10;
+                  resetBoard();
+                  Navigator.pop(context);
+                });
+              },
+              width: 120,
+              child: const Text(
+                "Proceed",
+                style: TextStyle(color: Colors.white, fontSize: 20),
+              ),
+            )
+          ],
+        ).show();
       }
     }
 
     _counter++;
     if (_counter == 10) {
-      resetBoard();
+      Alert(
+        context: context,
+        type: AlertType.warning,
+        title: "Nobody wins! retry",
+        buttons: [
+          DialogButton(
+            onPressed: () {
+              setState(() {
+                resetBoard();
+                Navigator.pop(context);
+              });
+            },
+            width: 120,
+            child: const Text(
+              "Proceed",
+              style: TextStyle(color: Colors.white, fontSize: 20),
+            ),
+          )
+        ],
+      ).show();
     }
 
     setState(() {});
@@ -101,7 +159,7 @@ class _HomePageState extends State<HomePage> {
       "",
       "",
     ];
-    _counter = 0;
+    _counter = 1;
   }
 
   @override
@@ -109,12 +167,15 @@ class _HomePageState extends State<HomePage> {
     var playerModel = ModalRoute.of(context)!.settings.arguments as PlayerModel;
     return Scaffold(
       appBar: AppBar(
+        iconTheme: const IconThemeData(color: Colors.white),
         title: const PoppinsText(
           text: 'XO-Game',
           fontWeight: FontWeight.bold,
+          color: Colors.white,
         ),
-        backgroundColor: const Color(0xFFa8dadc),
+        backgroundColor: const Color(0xFF598392),
       ),
+      backgroundColor: const Color(0xFFe5e5e5),
       body: Column(
         children: [
           Expanded(

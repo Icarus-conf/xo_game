@@ -18,7 +18,7 @@ class KButton extends StatelessWidget {
       padding: const EdgeInsets.symmetric(horizontal: 2, vertical: 2),
       child: ElevatedButton(
         style: ElevatedButton.styleFrom(
-          backgroundColor: const Color(0xFFa8dadc),
+          backgroundColor: const Color(0xFF598392),
           shape: const RoundedRectangleBorder(
             borderRadius: BorderRadius.zero,
           ),

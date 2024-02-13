@@ -44,6 +44,9 @@ class LoginPage extends StatelessWidget {
                               validator: (val) {
                                 if (val!.isEmpty) {
                                   return "Please enter a valid name";
+                                } else if (playerOneController.text.length <
+                                    4) {
+                                  return 'Please enter atleast 4 characters';
                                 } else {
                                   return null;
                                 }
@@ -55,6 +58,12 @@ class LoginPage extends StatelessWidget {
                               validator: (val) {
                                 if (val!.isEmpty) {
                                   return "Please enter a valid name";
+                                } else if (playerTwoController.text.length <
+                                    4) {
+                                  return 'Please enter atleast 4 characters';
+                                } else if (playerTwoController.text ==
+                                    playerOneController.text) {
+                                  return 'Same name! not allow here!';
                                 } else {
                                   return null;
                                 }
