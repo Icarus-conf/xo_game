@@ -94,6 +94,7 @@ class LoginPage extends StatelessWidget {
                                   playerTwoName: playerTwoController.text,
                                 ),
                               );
+                              FocusScope.of(context).unfocus();
                             }
                           },
                           child: const PoppinsText(
