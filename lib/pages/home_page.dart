@@ -38,7 +38,6 @@ class _HomePageState extends State<HomePage> {
     }
     if (_counter.isOdd) {
       _boardState[index] = 'X';
-
       _scoreOne += 2;
       bool win = winnerChecker('X');
       if (win) {
@@ -69,7 +68,6 @@ class _HomePageState extends State<HomePage> {
       }
     } else {
       _boardState[index] = 'O';
-
       _scoreTwo += 2;
       bool win = winnerChecker('O');
       if (win) {
@@ -174,6 +172,24 @@ class _HomePageState extends State<HomePage> {
     _counter = 1;
   }
 
+  resetGame() {
+    _boardState = [
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+    ];
+    _counter = 1;
+    _scoreOne = 0;
+    _scoreTwo = 0;
+    setState(() {});
+  }
+
   @override
   Widget build(BuildContext context) {
     var playerModel = ModalRoute.of(context)!.settings.arguments as PlayerModel;
@@ -185,6 +201,21 @@ class _HomePageState extends State<HomePage> {
           fontWeight: FontWeight.bold,
           color: Colors.white,
         ),
+        actions: [
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 10),
+            child: GestureDetector(
+              onTap: resetGame,
+              child: CircleAvatar(
+                backgroundColor: oColor,
+                child: Image.asset(
+                  'assets/reset.png',
+                  width: 40,
+                ),
+              ),
+            ),
+          ),
+        ],
         backgroundColor: primaryColor,
       ),
       backgroundColor: const Color(0xFFe5e5e5),
