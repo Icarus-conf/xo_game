@@ -47,6 +47,9 @@ class LoginPage extends StatelessWidget {
                                 } else if (playerOneController.text.length <
                                     4) {
                                   return 'Please enter atleast 4 characters';
+                                } else if (playerOneController.text.length >
+                                    11) {
+                                  return 'Too many characts in your name!';
                                 } else {
                                   return null;
                                 }
@@ -64,6 +67,9 @@ class LoginPage extends StatelessWidget {
                                 } else if (playerTwoController.text ==
                                     playerOneController.text) {
                                   return 'Same name! not allow here!';
+                                } else if (playerTwoController.text.length >
+                                    11) {
+                                  return 'Too many characts in your name!';
                                 } else {
                                   return null;
                                 }

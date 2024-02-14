@@ -31,12 +31,13 @@ class _HomePageState extends State<HomePage> {
     "",
   ];
 
-  onBtnCLicked(index) {
+  onBtnCLicked(index, color) {
     if (_boardState[index].isNotEmpty) {
       return;
     }
     if (_counter.isOdd) {
       _boardState[index] = 'X';
+
       _scoreOne += 2;
       bool win = winnerChecker('X');
       if (win) {
@@ -64,6 +65,7 @@ class _HomePageState extends State<HomePage> {
       }
     } else {
       _boardState[index] = 'O';
+
       _scoreTwo += 2;
       bool win = winnerChecker('O');
       if (win) {
@@ -164,6 +166,9 @@ class _HomePageState extends State<HomePage> {
 
   @override
   Widget build(BuildContext context) {
+    const primaryColor = Color(0xFF598392);
+    const xColor = Color(0xFFe63946);
+    const oColor = Color(0xFFfcbf49);
     var playerModel = ModalRoute.of(context)!.settings.arguments as PlayerModel;
     return Scaffold(
       appBar: AppBar(
@@ -226,19 +231,31 @@ class _HomePageState extends State<HomePage> {
               children: [
                 Expanded(
                     child: KButton(
-                        label: _boardState[0],
-                        onPressed: onBtnCLicked,
-                        index: 0)),
+                  label: _boardState[0],
+                  onPressed: onBtnCLicked,
+                  index: 0,
+                  color: _boardState[0] == 'X'
+                      ? xColor
+                      : (_boardState[0] == 'O' ? oColor : primaryColor),
+                )),
                 Expanded(
                     child: KButton(
-                        label: _boardState[1],
-                        onPressed: onBtnCLicked,
-                        index: 1)),
+                  label: _boardState[1],
+                  onPressed: onBtnCLicked,
+                  index: 1,
+                  color: _boardState[1] == 'X'
+                      ? xColor
+                      : (_boardState[1] == 'O' ? oColor : primaryColor),
+                )),
                 Expanded(
                     child: KButton(
-                        label: _boardState[2],
-                        onPressed: onBtnCLicked,
-                        index: 2)),
+                  label: _boardState[2],
+                  onPressed: onBtnCLicked,
+                  index: 2,
+                  color: _boardState[2] == 'X'
+                      ? xColor
+                      : (_boardState[2] == 'O' ? oColor : primaryColor),
+                )),
               ],
             ),
           ),
@@ -248,19 +265,31 @@ class _HomePageState extends State<HomePage> {
               children: [
                 Expanded(
                     child: KButton(
-                        label: _boardState[3],
-                        onPressed: onBtnCLicked,
-                        index: 3)),
+                  label: _boardState[3],
+                  onPressed: onBtnCLicked,
+                  index: 3,
+                  color: _boardState[3] == 'X'
+                      ? xColor
+                      : (_boardState[3] == 'O' ? oColor : primaryColor),
+                )),
                 Expanded(
                     child: KButton(
-                        label: _boardState[4],
-                        onPressed: onBtnCLicked,
-                        index: 4)),
+                  label: _boardState[4],
+                  onPressed: onBtnCLicked,
+                  index: 4,
+                  color: _boardState[4] == 'X'
+                      ? xColor
+                      : (_boardState[4] == 'O' ? oColor : primaryColor),
+                )),
                 Expanded(
                     child: KButton(
-                        label: _boardState[5],
-                        onPressed: onBtnCLicked,
-                        index: 5)),
+                  label: _boardState[5],
+                  onPressed: onBtnCLicked,
+                  index: 5,
+                  color: _boardState[5] == 'X'
+                      ? xColor
+                      : (_boardState[5] == 'O' ? oColor : primaryColor),
+                )),
               ],
             ),
           ),
@@ -270,19 +299,31 @@ class _HomePageState extends State<HomePage> {
               children: [
                 Expanded(
                     child: KButton(
-                        label: _boardState[6],
-                        onPressed: onBtnCLicked,
-                        index: 6)),
+                  label: _boardState[6],
+                  onPressed: onBtnCLicked,
+                  index: 6,
+                  color: _boardState[6] == 'X'
+                      ? xColor
+                      : (_boardState[6] == 'O' ? oColor : primaryColor),
+                )),
                 Expanded(
                     child: KButton(
-                        label: _boardState[7],
-                        onPressed: onBtnCLicked,
-                        index: 7)),
+                  label: _boardState[7],
+                  onPressed: onBtnCLicked,
+                  index: 7,
+                  color: _boardState[7] == 'X'
+                      ? xColor
+                      : (_boardState[7] == 'O' ? oColor : primaryColor),
+                )),
                 Expanded(
                     child: KButton(
-                        label: _boardState[8],
-                        onPressed: onBtnCLicked,
-                        index: 8)),
+                  label: _boardState[8],
+                  onPressed: onBtnCLicked,
+                  index: 8,
+                  color: _boardState[8] == 'X'
+                      ? xColor
+                      : (_boardState[8] == 'O' ? oColor : primaryColor),
+                )),
               ],
             ),
           ),
