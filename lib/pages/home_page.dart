@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:rflutter_alert/rflutter_alert.dart';
 import 'package:xo_game/components/button.dart';
+import 'package:xo_game/components/constants/color.dart';
 import 'package:xo_game/components/text_format.dart';
 import 'package:xo_game/model/player_model.dart';
 
@@ -42,6 +43,9 @@ class _HomePageState extends State<HomePage> {
       bool win = winnerChecker('X');
       if (win) {
         Alert(
+          style: const AlertStyle(
+            isOverlayTapDismiss: false,
+          ),
           context: context,
           type: AlertType.success,
           title: "Congrats X wins!",
@@ -56,7 +60,7 @@ class _HomePageState extends State<HomePage> {
               },
               width: 120,
               child: const Text(
-                "Proceed",
+                "Play again",
                 style: TextStyle(color: Colors.white, fontSize: 20),
               ),
             )
@@ -70,6 +74,9 @@ class _HomePageState extends State<HomePage> {
       bool win = winnerChecker('O');
       if (win) {
         Alert(
+          style: const AlertStyle(
+            isOverlayTapDismiss: false,
+          ),
           context: context,
           type: AlertType.success,
           title: "Congrats O wins!",
@@ -84,7 +91,7 @@ class _HomePageState extends State<HomePage> {
               },
               width: 120,
               child: const Text(
-                "Proceed",
+                "Play again",
                 style: TextStyle(color: Colors.white, fontSize: 20),
               ),
             )
@@ -96,6 +103,9 @@ class _HomePageState extends State<HomePage> {
     _counter++;
     if (_counter == 10) {
       Alert(
+        style: const AlertStyle(
+          isOverlayTapDismiss: false,
+        ),
         context: context,
         type: AlertType.warning,
         title: "Nobody wins! retry",
@@ -166,9 +176,6 @@ class _HomePageState extends State<HomePage> {
 
   @override
   Widget build(BuildContext context) {
-    const primaryColor = Color(0xFF598392);
-    const xColor = Color(0xFFe63946);
-    const oColor = Color(0xFFfcbf49);
     var playerModel = ModalRoute.of(context)!.settings.arguments as PlayerModel;
     return Scaffold(
       appBar: AppBar(
@@ -178,7 +185,7 @@ class _HomePageState extends State<HomePage> {
           fontWeight: FontWeight.bold,
           color: Colors.white,
         ),
-        backgroundColor: const Color(0xFF598392),
+        backgroundColor: primaryColor,
       ),
       backgroundColor: const Color(0xFFe5e5e5),
       body: Column(
@@ -196,10 +203,18 @@ class _HomePageState extends State<HomePage> {
                         fontS: 25,
                         color: const Color(0xFF0077b6),
                       ),
-                      PoppinsText(
-                        text: '$_scoreOne',
-                        fontWeight: FontWeight.w600,
-                        fontS: 25,
+                      Container(
+                        padding: const EdgeInsets.all(12),
+                        decoration: BoxDecoration(
+                          color: xColor,
+                          borderRadius: BorderRadius.circular(12),
+                        ),
+                        child: PoppinsText(
+                          text: '$_scoreOne',
+                          fontWeight: FontWeight.w600,
+                          fontS: 25,
+                          color: Colors.white,
+                        ),
                       ),
                     ],
                   ),
@@ -214,10 +229,18 @@ class _HomePageState extends State<HomePage> {
                         fontS: 25,
                         color: const Color(0xFF0077b6),
                       ),
-                      PoppinsText(
-                        text: '$_scoreTwo',
-                        fontWeight: FontWeight.w600,
-                        fontS: 25,
+                      Container(
+                        padding: const EdgeInsets.all(12),
+                        decoration: BoxDecoration(
+                          color: oColor,
+                          borderRadius: BorderRadius.circular(12),
+                        ),
+                        child: PoppinsText(
+                          text: '$_scoreTwo',
+                          fontWeight: FontWeight.w600,
+                          fontS: 25,
+                          color: Colors.white,
+                        ),
                       ),
                     ],
                   ),

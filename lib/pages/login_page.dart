@@ -16,7 +16,17 @@ class LoginPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: const Color(0xFF1b263b),
-      body: SafeArea(
+      body: Container(
+        decoration: const BoxDecoration(
+          gradient: LinearGradient(
+            begin: Alignment.topLeft,
+            end: Alignment.bottomRight,
+            colors: [
+              Color(0xFF085467),
+              Color(0xFFAFA7BB),
+            ],
+          ),
+        ),
         child: Center(
           child: SingleChildScrollView(
             child: Column(
@@ -29,6 +39,7 @@ class LoginPage extends StatelessWidget {
                     children: [
                       Image.asset(
                         'assets/logo.png',
+                        color: Colors.white,
                         width: 200,
                       ),
                       const SizedBox(
@@ -87,7 +98,8 @@ class LoginPage extends StatelessWidget {
                           style: ElevatedButton.styleFrom(
                             backgroundColor: const Color(0xFFffffff),
                             shape: const RoundedRectangleBorder(
-                              borderRadius: BorderRadius.zero,
+                              borderRadius:
+                                  BorderRadius.all(Radius.circular(12)),
                             ),
                           ),
                           onPressed: () {
@@ -106,7 +118,7 @@ class LoginPage extends StatelessWidget {
                           child: const PoppinsText(
                             text: 'Start the game',
                             color: Colors.black,
-                            fontWeight: FontWeight.w600,
+                            fontWeight: FontWeight.w400,
                           ),
                         ),
                       ),
